@@ -1,0 +1,1131 @@
+fileFormatVersion: 2
+guid: 3ade9880daf744c4aae4dd4c8dc751a3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2510668329759203233
+    second: Gazing Globin_0
+  - first:
+      213: 8484592597232776067
+    second: Gazing Globin_1
+  - first:
+      213: 7939117398586453757
+    second: Gazing Globin_2
+  - first:
+      213: -706711836638585577
+    second: Gazing Globin_3
+  - first:
+      213: -5230078594363048335
+    second: Gazing Globin_4
+  - first:
+      213: -9159056325812853388
+    second: Gazing Globin_5
+  - first:
+      213: -5106527179713923997
+    second: Gazing Globin_6
+  - first:
+      213: 639774324409813541
+    second: Gazing Globin_7
+  - first:
+      213: 4244066819301404467
+    second: Gazing Globin_8
+  - first:
+      213: 6425359973779720555
+    second: Gazing Globin_9
+  - first:
+      213: 6439776202663681890
+    second: Gazing Globin_10
+  - first:
+      213: -1550717251329643496
+    second: Gazing Globin_11
+  - first:
+      213: -473041374591317422
+    second: Gazing Globin_12
+  - first:
+      213: -920245885123273792
+    second: Gazing Globin_13
+  - first:
+      213: 1137659293001647990
+    second: Gazing Globin_14
+  - first:
+      213: -3397168567747344363
+    second: Gazing Globin_15
+  - first:
+      213: -701220969467193718
+    second: Gazing Globin_16
+  - first:
+      213: -6596117716338649446
+    second: Gazing Globin_17
+  - first:
+      213: -9061148072199455744
+    second: Gazing Globin_18
+  - first:
+      213: 5710915064060706404
+    second: Gazing Globin_19
+  - first:
+      213: 8654849456852459440
+    second: Gazing Globin_20
+  - first:
+      213: -690831114642104214
+    second: Gazing Globin_21
+  - first:
+      213: 23008408843667425
+    second: Gazing Globin_22
+  - first:
+      213: 2513836431610432836
+    second: Gazing Globin_23
+  - first:
+      213: 3972428702157465425
+    second: Gazing Globin_24
+  - first:
+      213: 6603673446673271247
+    second: Gazing Globin_25
+  - first:
+      213: 908665364595735526
+    second: Gazing Globin_26
+  - first:
+      213: 5019563280171830776
+    second: Gazing Globin_27
+  - first:
+      213: 7367999605370736988
+    second: Gazing Globin_28
+  - first:
+      213: -7273228587673301913
+    second: Gazing Globin_29
+  - first:
+      213: 4530949028265196069
+    second: Gazing Globin_30
+  - first:
+      213: -7064766806561932460
+    second: Gazing Globin_31
+  - first:
+      213: 7810626364630469025
+    second: Gazing Globin_32
+  - first:
+      213: 2037356937660202019
+    second: Gazing Globin_33
+  - first:
+      213: 6064737178301479125
+    second: Gazing Globin_34
+  - first:
+      213: -2322979152278604316
+    second: Gazing Globin_35
+  - first:
+      213: 6409611647443384121
+    second: Gazing Globin_36
+  - first:
+      213: -4425857983333406720
+    second: Gazing Globin_37
+  - first:
+      213: 7660102659956176671
+    second: Gazing Globin_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gazing Globin_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 229
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1afde183b8fa7d220800000000000000
+      internalID: 2510668329759203233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 229
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 383f7fd83045fb570800000000000000
+      internalID: 8484592597232776067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 229
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfe6ed4f5396d2e60800000000000000
+      internalID: 7939117398586453757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 229
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71dd79234514136f0800000000000000
+      internalID: -706711836638585577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 229
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ebd938a370b67b0800000000000000
+      internalID: -5230078594363048335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_5
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 229
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47561266cce74e080800000000000000
+      internalID: -9159056325812853388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_6
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 229
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3643649e598f129b0800000000000000
+      internalID: -5106527179713923997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_7
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 229
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52accdebb5fe0e800800000000000000
+      internalID: 639774324409813541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_8
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 217
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33f6b7f3944f5ea30800000000000000
+      internalID: 4244066819301404467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 197
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6947276ad67b2950800000000000000
+      internalID: 6425359973779720555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_10
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 197
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f58c0465eae5950800000000000000
+      internalID: 6439776202663681890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 165
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81c2d6f30eeba7ae0800000000000000
+      internalID: -1550717251329643496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_12
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 165
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25a0c67406b6f69f0800000000000000
+      internalID: -473041374591317422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_13
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 165
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb563f3e31aa33f0800000000000000
+      internalID: -920245885123273792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_14
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 163
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67709c27917c9cf00800000000000000
+      internalID: 1137659293001647990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_15
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 164
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5180c45cf25dad0d0800000000000000
+      internalID: -3397168567747344363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_16
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 165
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a865ad55e33c446f0800000000000000
+      internalID: -701220969467193718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_17
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 165
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9659fc72e1e574a0800000000000000
+      internalID: -6596117716338649446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_18
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 165
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00cf55b16d5504280800000000000000
+      internalID: -9061148072199455744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_19
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 131
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46ef3c73efe314f40800000000000000
+      internalID: 5710915064060706404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_20
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 132
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bf5c24c9b33c1870800000000000000
+      internalID: 8654849456852459440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_21
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 101
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6068fbe2cca966f0800000000000000
+      internalID: -690831114642104214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_22
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 101
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e749f3a60eb15000800000000000000
+      internalID: 23008408843667425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_23
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 101
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44d43996ae0f2e220800000000000000
+      internalID: 2513836431610432836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_24
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 101
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15769a79bd6e02730800000000000000
+      internalID: 3972428702157465425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_25
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 101
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9c3a11306f4ab50800000000000000
+      internalID: 6603673446673271247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_26
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 101
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ebfd64b55a3c9c00800000000000000
+      internalID: 908665364595735526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_27
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 101
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fd8c32653219a540800000000000000
+      internalID: 5019563280171830776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_28
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 101
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c51575f8a94604660800000000000000
+      internalID: 7367999605370736988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_29
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 69
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76c448d722d401b90800000000000000
+      internalID: -7273228587673301913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_30
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 69
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52af52d922a21ee30800000000000000
+      internalID: 4530949028265196069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 35
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45bb7e92508e4fd90800000000000000
+      internalID: -7064766806561932460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_32
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 35
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a98911db4be46c60800000000000000
+      internalID: 7810626364630469025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_33
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 34
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32cf9e52755264c10800000000000000
+      internalID: 2037356937660202019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_34
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 34
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d8b3c0d4564a2450800000000000000
+      internalID: 6064737178301479125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e5bbc7c4ce13cfd0800000000000000
+      internalID: -2322979152278604316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_36
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937b11275d383f850800000000000000
+      internalID: 6409611647443384121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_37
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 008e5150d913492c0800000000000000
+      internalID: -4425857983333406720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gazing Globin_38
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 0
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1776b5c8c62e4a60800000000000000
+      internalID: 7660102659956176671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Gazing Globin_0: 2510668329759203233
+      Gazing Globin_1: 8484592597232776067
+      Gazing Globin_10: 6439776202663681890
+      Gazing Globin_11: -1550717251329643496
+      Gazing Globin_12: -473041374591317422
+      Gazing Globin_13: -920245885123273792
+      Gazing Globin_14: 1137659293001647990
+      Gazing Globin_15: -3397168567747344363
+      Gazing Globin_16: -701220969467193718
+      Gazing Globin_17: -6596117716338649446
+      Gazing Globin_18: -9061148072199455744
+      Gazing Globin_19: 5710915064060706404
+      Gazing Globin_2: 7939117398586453757
+      Gazing Globin_20: 8654849456852459440
+      Gazing Globin_21: -690831114642104214
+      Gazing Globin_22: 23008408843667425
+      Gazing Globin_23: 2513836431610432836
+      Gazing Globin_24: 3972428702157465425
+      Gazing Globin_25: 6603673446673271247
+      Gazing Globin_26: 908665364595735526
+      Gazing Globin_27: 5019563280171830776
+      Gazing Globin_28: 7367999605370736988
+      Gazing Globin_29: -7273228587673301913
+      Gazing Globin_3: -706711836638585577
+      Gazing Globin_30: 4530949028265196069
+      Gazing Globin_31: -7064766806561932460
+      Gazing Globin_32: 7810626364630469025
+      Gazing Globin_33: 2037356937660202019
+      Gazing Globin_34: 6064737178301479125
+      Gazing Globin_35: -2322979152278604316
+      Gazing Globin_36: 6409611647443384121
+      Gazing Globin_37: -4425857983333406720
+      Gazing Globin_38: 7660102659956176671
+      Gazing Globin_4: -5230078594363048335
+      Gazing Globin_5: -9159056325812853388
+      Gazing Globin_6: -5106527179713923997
+      Gazing Globin_7: 639774324409813541
+      Gazing Globin_8: 4244066819301404467
+      Gazing Globin_9: 6425359973779720555
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
