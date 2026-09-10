@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Gazling_controller : MonoBehaviour
 {
@@ -6,10 +7,19 @@ public class Gazling_controller : MonoBehaviour
     public float speed = 0.6f;
     public bool moveRight = true;
 
+    private bool isBated;
+    public Animator animator;
+
+    private BoxCollider2D box;
+    private Vector2 originalSize;
+
+    private Vector2 originalSprite;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        box = GetComponent<BoxCollider2D>();
+        originalSize = box.size;
+        originalSprite = box.offset;
     }
 
     // Update is called once per frame
@@ -39,8 +49,18 @@ public class Gazling_controller : MonoBehaviour
 
         if (collision.gameObject.tag == "Player") {
             if (transform.position.y < collision.transform.position.y) {
-                Destroy(gameObject);
+                isBated = true;
+                float visualY = originalSize.y * 0.37f;
+                speed = 0;
+                animator.SetBool("beated", isBated);
+                box.size = new Vector2(originalSize.x, visualY);
+                box.offset = new Vector2(originalSprite.x, originalSprite.y - (originalSize.y - visualY) / 2f);
+                //Invoke("Death", 1);
             } 
         }
+    }
+
+    private void Death() {
+        Destroy(gameObject);
     }
 }
