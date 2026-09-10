@@ -14,7 +14,7 @@ public class Isaac_controller : MonoBehaviour
     public bool inGroud = true;
     public Animator animator;
     public Transform feetPos;
-    public float checkRaduis = 5;
+    public float checkRadius = 0.5f;
     public LayerMask whatIsUnder;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,24 +23,38 @@ public class Isaac_controller : MonoBehaviour
     }
 
     void FixedUpdate() {
+    
         float HorizontalMove = Input.GetAxis("Horizontal");
         float VerticalMove = Input.GetAxis("Vertical");
         rb.linearVelocity = new Vector2(HorizontalMove * speed, rb.linearVelocity.y);
         animator.SetFloat("Speed",Math.Abs(HorizontalMove));
+
+        if (Input.GetKey(KeyCode.J))
+        {
+            animator.SetInteger("Shoot_d", -1);
+            animator.SetBool("Shoot", true);
+        }
+        else if (Input.GetKey(KeyCode.L))
+        {
+            animator.SetInteger("Shoot_d", 1);
+            animator.SetBool("Shoot", true);
+        }
+        else
+        {
+            animator.SetInteger("Shoot_d", 0);
+            animator.SetBool("Shoot", false);
+        }
     }
     // Update is called once per frame
     void Update()
     {
         float HorizontalMove = Input.GetAxis("Horizontal");
-        inGroud = Physics2D.OverlapCircle(feetPos.position, checkRaduis, whatIsUnder);
-        Debug.Log(inGroud);
-        if ((HorizontalMove < 0.0f && spriteRight) || (HorizontalMove > 0.0f && !spriteRight)) {
-            FlipIsaac();
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("Se presiono la letrea A");
-        }
+        inGroud = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsUnder);
+        Debug.Log( "Estado de piso "+inGroud);
+        //Cambio de sprite 
+        //if ((HorizontalMove < 0.0f && spriteRight) || (HorizontalMove > 0.0f && !spriteRight)) {
+        //    FlipIsaac();
+        //}
         if (Input.GetKeyDown(KeyCode.Space) && inGroud) {
             Jump();
         }
@@ -55,6 +69,7 @@ public class Isaac_controller : MonoBehaviour
 
     void Jump() {
         rb.AddForceY(jumpForce);
+        inGroud = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

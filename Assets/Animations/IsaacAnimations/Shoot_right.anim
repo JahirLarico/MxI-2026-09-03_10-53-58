@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shoot
+  m_Name: Shoot_right
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - serializedVersion: 2
     curve:
-    - time: 0.083333336
+    - time: 0.033333335
       value: {fileID: 3687936028459409125, guid: 8cb9f493d00cf8e468238fff27e3c0f3, type: 3}
     - time: 0.2
       value: {fileID: -7660364651126855860, guid: 8cb9f493d00cf8e468238fff27e3c0f3, type: 3}
