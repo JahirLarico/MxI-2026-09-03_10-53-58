@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3421001472377933653}
   - component: {fileID: 5101008410068799193}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gazing Globin_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3859008202402265965}
   - component: {fileID: 4115342630690252373}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gazing Globin_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,6 +182,74 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &7116493840314419208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9109244553927678247}
+  - component: {fileID: 4996800012821090696}
+  m_Layer: 7
+  m_Name: Gazin_collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9109244553927678247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116493840314419208}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.006, y: 0.458, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 67055179903913495}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4996800012821090696
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116493840314419208}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.019381464, y: -0.34102815}
+  m_Radius: 0.17835335
 --- !u!1 &9172789458856588942
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,9 +262,10 @@ GameObject:
   - component: {fileID: 3391153538618663684}
   - component: {fileID: 5863970181822843010}
   - component: {fileID: 2033194546128945067}
-  m_Layer: 0
+  - component: {fileID: 4786012949797767085}
+  m_Layer: 7
   m_Name: Gazin_Goblin
-  m_TagString: Untagged
+  m_TagString: Enemie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,6 +285,7 @@ Transform:
   m_Children:
   - {fileID: 3421001472377933653}
   - {fileID: 3859008202402265965}
+  - {fileID: 9109244553927678247}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3391153538618663684
@@ -313,3 +383,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4786012949797767085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172789458856588942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d4778eca432a84bacfc27a833f6a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gazling_controller
+  speed: 0.6
+  moveRight: 0
