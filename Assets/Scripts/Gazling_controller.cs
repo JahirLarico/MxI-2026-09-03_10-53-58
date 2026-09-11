@@ -14,6 +14,8 @@ public class Gazling_controller : MonoBehaviour
     private Vector2 originalSize;
 
     private Vector2 originalSprite;
+
+    GameObject isaaac;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,15 +50,32 @@ public class Gazling_controller : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "Player") {
-            if (transform.position.y < collision.transform.position.y) {
+            if (transform.position.y < collision.transform.position.y)
+            {
+                int playerLayer = LayerMask.NameToLayer("Player");
+                int enemyLayer = LayerMask.NameToLayer("Enemie");
+
+                Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
                 isBated = true;
                 float visualY = originalSize.y * 0.37f;
                 speed = 0;
                 animator.SetBool("beated", isBated);
                 box.size = new Vector2(originalSize.x, visualY);
                 box.offset = new Vector2(originalSprite.x, originalSprite.y - (originalSize.y - visualY) / 2f);
+                //Collider2D[] colliders = FindObjectsOfType<Collider2D>();
+
+                //foreach (Collider2D col in colliders)
+                //{
+                //    if (!col.CompareTag("Ground"))
+                //    {
+                //        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), col, true);
+                //    }
+                //}
                 //Invoke("Death", 1);
-            } 
+            }
+            else {
+                Isaac_controller.death = true;
+            }
         }
     }
 

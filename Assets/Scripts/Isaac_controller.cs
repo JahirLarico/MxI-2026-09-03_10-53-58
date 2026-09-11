@@ -1,7 +1,8 @@
 using System;
 using System.Threading;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 public class Isaac_controller : MonoBehaviour
 {
 
@@ -16,10 +17,18 @@ public class Isaac_controller : MonoBehaviour
     public Transform feetPos;
     public float checkRadius = 0.5f;
     public LayerMask whatIsUnder;
+    private Vector2 originalSize;
+
+    private Vector2 originalSprite;
+    private BoxCollider2D box;
+
+    private bool sonidoMuerteReproducido = false;
+    public static bool death;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        box = GetComponent<BoxCollider2D>();
     }
 
     void FixedUpdate() {
@@ -58,6 +67,31 @@ public class Isaac_controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && inGroud) {
             Jump();
         }
+        if (death) {
+            int playerLayer = LayerMask.NameToLayer("Player");
+            int enemyLayer = LayerMask.NameToLayer("Enemie");
+
+            Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+            GetComponent<Collider2D>().isTrigger = true;
+            transform.Find("FeetPos").GetComponent<Collider2D>().isTrigger = true;
+            rb.gravityScale = 0.0f;
+            float visualY = originalSize.y * 1.37f;
+            //box.size = new Vector2(originalSize.x, visualY);
+            box.offset = new Vector2(originalSprite.x, originalSprite.y - (originalSize.y - visualY) / 2f);
+
+            if (!sonidoMuerteReproducido)
+            {
+                AudioSource sound = GetComponent<AudioSource>();
+                sound.Play();
+
+                sonidoMuerteReproducido = true;
+            }
+            animator.SetBool("Death", true);
+            Invoke("ReloadScene", 1);
+            jumpForce = 0;
+            speed = 0;
+
+        }
     }
 
     void FlipIsaac() {
@@ -87,5 +121,10 @@ public class Isaac_controller : MonoBehaviour
         {
             inGroud = false;
         }
+    }
+
+    private void ReloadScene() {
+        death = false;
+        SceneManager.LoadScene("SampleScene");
     }
 }
