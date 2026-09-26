@@ -24,9 +24,21 @@ public class Isaac_controller : MonoBehaviour
 
     private bool sonidoMuerteReproducido = false;
     public static bool death;
+
+    [Header("Vida")]
+    [SerializeField] private int corazonesMaximos = 6;
+
+    [SerializeField] private int corazonesActuales;
+
+    [Header("Invulnerabilidad")]
+    [SerializeField] private float tiempoInvulnerabilidad = 1f;
+
+    private bool esInvulnerable = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        corazonesActuales = corazonesMaximos;
         rb = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
     }
@@ -68,17 +80,22 @@ public class Isaac_controller : MonoBehaviour
             Jump();
         }
         if (death) {
-            int playerLayer = LayerMask.NameToLayer("Player");
-            int enemyLayer = LayerMask.NameToLayer("Enemie");
+            //int playerLayer = LayerMask.NameToLayer("Player");
+            //int enemyLayer = LayerMask.NameToLayer("Enemie");
 
-            Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
-            GetComponent<Collider2D>().isTrigger = true;
-            transform.Find("FeetPos").GetComponent<Collider2D>().isTrigger = true;
-            rb.gravityScale = 0.0f;
-            float visualY = originalSize.y * 1.37f;
-            //box.size = new Vector2(originalSize.x, visualY);
-            box.offset = new Vector2(originalSprite.x, originalSprite.y - (originalSize.y - visualY) / 2f);
+            //Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+            //GetComponent<Collider2D>().isTrigger = true;
+            //transform.Find("FeetPos").GetComponent<Collider2D>().isTrigger = true;
+            //rb.gravityScale = 0.0f;
+            //float visualY = originalSize.y * 1.37f;
+            ////box.size = new Vector2(originalSize.x, visualY);
+            //box.offset = new Vector2(originalSprite.x, originalSprite.y - (originalSize.y - visualY) / 2f);
 
+            //animator.SetBool("Death", true);
+            //Invoke("ReloadScene", 1);
+            //jumpForce = 0;
+            //speed = 0;
+            RecibirDanio(1);
             if (!sonidoMuerteReproducido)
             {
                 AudioSource sound = GetComponent<AudioSource>();
@@ -86,10 +103,6 @@ public class Isaac_controller : MonoBehaviour
 
                 sonidoMuerteReproducido = true;
             }
-            animator.SetBool("Death", true);
-            Invoke("ReloadScene", 1);
-            jumpForce = 0;
-            speed = 0;
 
         }
     }
@@ -126,5 +139,56 @@ public class Isaac_controller : MonoBehaviour
     private void ReloadScene() {
         death = false;
         SceneManager.LoadScene("SampleScene");
+    }
+
+
+
+
+    public void RecibirDanio(int cantidad)
+    {
+        if (esInvulnerable)
+        {
+            return;
+        }
+
+        corazonesActuales -= cantidad;
+
+        if (corazonesActuales < 0)
+        {
+            corazonesActuales = 0;
+        }
+
+        Debug.Log("Isaac recibió daño. Corazones actuales: " + corazonesActuales);
+
+        StartCoroutine(Invulnerabilidad());
+
+        if (corazonesActuales <= 0)
+        {
+            Morir();
+        }
+    }
+
+
+    private System.Collections.IEnumerator Invulnerabilidad()
+    {
+        esInvulnerable = true;
+
+        Debug.Log("Isaac es invulnerable durante " + tiempoInvulnerabilidad + " segundos.");
+
+        yield return new WaitForSeconds(tiempoInvulnerabilidad);
+
+        esInvulnerable = false;
+
+        Debug.Log("Isaac ya no es invulnerable.");
+    }
+
+
+    private void Morir()
+    {
+        Debug.Log("Isaac ha muerto.");
+    }
+    public int ObtenerCorazonesActuales()
+    {
+        return corazonesActuales;
     }
 }
