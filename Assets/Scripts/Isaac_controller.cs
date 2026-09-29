@@ -71,7 +71,6 @@ public class Isaac_controller : MonoBehaviour
     {
         float HorizontalMove = Input.GetAxis("Horizontal");
         inGroud = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsUnder);
-        Debug.Log( "Estado de piso "+inGroud);
         //Cambio de sprite 
         //if ((HorizontalMove < 0.0f && spriteRight) || (HorizontalMove > 0.0f && !spriteRight)) {
         //    FlipIsaac();
@@ -120,7 +119,6 @@ public class Isaac_controller : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("toco el piso");
 
         if (collision.gameObject.tag == "Ground") {
             inGroud = true;
@@ -129,7 +127,6 @@ public class Isaac_controller : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        Debug.Log("dejo el piso");
         if (collision.gameObject.tag == "Ground")
         {
             inGroud = false;
@@ -158,8 +155,6 @@ public class Isaac_controller : MonoBehaviour
             corazonesActuales = 0;
         }
 
-        Debug.Log("Isaac recibió daño. Corazones actuales: " + corazonesActuales);
-
         StartCoroutine(Invulnerabilidad());
 
         if (corazonesActuales <= 0)
@@ -173,13 +168,11 @@ public class Isaac_controller : MonoBehaviour
     {
         esInvulnerable = true;
 
-        Debug.Log("Isaac es invulnerable durante " + tiempoInvulnerabilidad + " segundos.");
 
         yield return new WaitForSeconds(tiempoInvulnerabilidad);
 
         esInvulnerable = false;
 
-        Debug.Log("Isaac ya no es invulnerable.");
     }
 
 
