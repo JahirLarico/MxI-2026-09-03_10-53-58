@@ -1563,7 +1563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056284591}
   - component: {fileID: 1056284593}
-  - component: {fileID: 1056284592}
+  - component: {fileID: 1056284594}
   m_Layer: 7
   m_Name: Bar
   m_TagString: Untagged
@@ -1591,7 +1591,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -10.9}
   m_SizeDelta: {x: 40, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1056284592
+--- !u!222 &1056284593
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056284590}
+  m_CullTransparentMesh: 1
+--- !u!114 &1056284594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1604,7 +1612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1621,14 +1629,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &1056284593
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056284590}
-  m_CullTransparentMesh: 1
 --- !u!1 &1066380874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,7 +1721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1072756712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,7 +1729,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072756711}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -2292,7 +2292,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35, y: 8}
+  m_SizeDelta: {x: 40, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1350372710
 CanvasRenderer:
@@ -2315,7 +2315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3687,11 +3687,15 @@ PrefabInstance:
     - target: {fileID: 4786012949797767085, guid: 19ba6e3794b07804fa68305c8d799aba, type: 3}
       propertyPath: barraVida
       value: 
-      objectReference: {fileID: 1350372711}
+      objectReference: {fileID: 1350372709}
     - target: {fileID: 4786012949797767085, guid: 19ba6e3794b07804fa68305c8d799aba, type: 3}
       propertyPath: textoDanio
       value: 
       objectReference: {fileID: 1072756712}
+    - target: {fileID: 4786012949797767085, guid: 19ba6e3794b07804fa68305c8d799aba, type: 3}
+      propertyPath: vidaMaxima
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4786012949797767085, guid: 19ba6e3794b07804fa68305c8d799aba, type: 3}
       propertyPath: audioSource
       value: 
@@ -3704,6 +3708,10 @@ PrefabInstance:
       propertyPath: sonidoEnemigo
       value: 
       objectReference: {fileID: 8300000, guid: ce2dec1aae30a5449824101c266dc09f, type: 3}
+    - target: {fileID: 4786012949797767085, guid: 19ba6e3794b07804fa68305c8d799aba, type: 3}
+      propertyPath: anchoBarraVida
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4996800012821090696, guid: 19ba6e3794b07804fa68305c8d799aba, type: 3}
       propertyPath: m_IsTrigger
       value: 1

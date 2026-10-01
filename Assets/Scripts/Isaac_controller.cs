@@ -40,6 +40,14 @@ public class Isaac_controller : MonoBehaviour
     [Header("Rebote al pisar enemigos")]
     public float fuerzaRebote = 5f;
 
+    [Header("DISPARO")]
+    public GameObject prefabLagrima;
+    public Transform puntoDisparo;
+
+    public float cadenciaDisparo = 1f;
+    public int danoLagrima = 10;
+
+    private float temporizadorDisparo = 0f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -71,11 +79,15 @@ public class Isaac_controller : MonoBehaviour
         {
             animator.SetInteger("Shoot_d", -1);
             animator.SetBool("Shoot", true);
+
+            IntentarDisparar(Vector2.left);
         }
         else if (Input.GetKey(KeyCode.L))
         {
             animator.SetInteger("Shoot_d", 1);
             animator.SetBool("Shoot", true);
+
+            IntentarDisparar(Vector2.right);
         }
         else
         {
@@ -87,11 +99,17 @@ public class Isaac_controller : MonoBehaviour
 
     void Update()
     {
+        if (temporizadorDisparo > 0f)
+        {
+            temporizadorDisparo -= Time.deltaTime;
+        }
+
         inGroud = Physics2D.OverlapCircle(
             feetPos.position,
             checkRadius,
             whatIsUnder
         );
+
 
         if (Input.GetKeyDown(KeyCode.Space) && inGroud)
         {
@@ -149,11 +167,19 @@ public class Isaac_controller : MonoBehaviour
         {
             inGroud = true;
         }
+        if (collision.gameObject.CompareTag("Pipe"))
+        {
+            inGroud = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
+        {
+            inGroud = false;
+        }
+        if (collision.gameObject.CompareTag("Pipe"))
         {
             inGroud = false;
         }
@@ -218,6 +244,51 @@ public class Isaac_controller : MonoBehaviour
     public int ObtenerCorazonesActuales()
     {
         return corazonesActuales;
+    }
+
+    private void IntentarDisparar(Vector2 direccion)
+    {
+        if (temporizadorDisparo > 0f)
+        {
+            return;
+        }
+
+        Disparar(direccion);
+
+        temporizadorDisparo = cadenciaDisparo;
+    }
+
+    private void Disparar(Vector2 direccion)
+    {
+        if (prefabLagrima == null)
+        {
+            Debug.LogWarning("No has asignado el prefab de la lágrima.");
+            return;
+        }
+
+        if (puntoDisparo == null)
+        {
+            Debug.LogWarning("No has asignado el PuntoDisparo.");
+            return;
+        }
+
+
+        GameObject nuevaLagrima = Instantiate(
+            prefabLagrima,
+            puntoDisparo.position,
+            Quaternion.identity
+        );
+
+
+        Tear_controller lagrima =
+            nuevaLagrima.GetComponent<Tear_controller>();
+
+
+        if (lagrima != null)
+        {
+            lagrima.dano = danoLagrima;
+            lagrima.Configurar(direccion);
+        }
     }
 
 }
