@@ -101,14 +101,16 @@ public class Gazling_controller : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+                Isaac_controller isaac = collision.GetComponent<Isaac_controller>();
             if (collision.transform.position.y > transform.position.y)
             {
+                isaac.Rebotar();
                 Pisoton();
 
             }
             else
             {
-                Isaac_controller.death = true;
+                isaac.RecibirDanio(1);
             }
         }
     }
@@ -124,7 +126,6 @@ public class Gazling_controller : MonoBehaviour
         puedeRecibirPisoton = false;
 
         RecibirDanio(danoPorPisoton);
-
         StartCoroutine(ReactivarPisoton());
     }
 
@@ -212,20 +213,7 @@ public class Gazling_controller : MonoBehaviour
             cabeza.SetActive(false);
         }
 
-        if (cuerpoNormal != null)
-        {
-            cuerpoNormal.SetActive(false);
-        }
-
-        if (cuerpoSegundaForma != null)
-        {
-            cuerpoSegundaForma.SetActive(true);
-        }
-
-        if (animator != null)
-        {
-            animator.SetBool("beated", true);
-        }
+     
 
 
         if (coroutineRevivir != null)
@@ -264,11 +252,6 @@ public class Gazling_controller : MonoBehaviour
         vidaActual = Mathf.CeilToInt(
             vidaMaxima * porcentajeAlRevivir
         );
-
-        if (cuerpoSegundaForma != null)
-        {
-            cuerpoSegundaForma.SetActive(false);
-        }
 
         if (cuerpoNormal != null)
         {

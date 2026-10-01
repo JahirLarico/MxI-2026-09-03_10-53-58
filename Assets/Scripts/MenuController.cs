@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 public class MenuController : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject firstButton;
 
     private bool isPaused = false;
-
+    private void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -28,7 +33,9 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 0f;
 
         isPaused = true;
-    }
+
+        EventSystem.current.SetSelectedGameObject(firstButton);
+     }
 
     public void ContinueGame()
     {
