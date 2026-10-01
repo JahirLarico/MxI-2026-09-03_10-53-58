@@ -1,5 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class Gazling_controller : MonoBehaviour
 {
@@ -8,7 +11,7 @@ public class Gazling_controller : MonoBehaviour
     public bool moveRight = true;
 
     [Header("VIDA")]
-    public int vidaMaxima = 120;
+    public int vidaMaxima = 40;
     public int vidaActual;
 
     [Tooltip("Daño que recibe cuando Isaac cae encima.")]
@@ -50,6 +53,13 @@ public class Gazling_controller : MonoBehaviour
 
     private Coroutine coroutineRevivir;
 
+    [Header("BARRA DE VIDA")]
+    public RectTransform barraVida;
+    public TextMeshProUGUI textoDanio;
+    public float tiempoTextoDanio = 0.5f;
+
+    [Header("BARRA DE VIDA")]
+    public float anchoBarraVida = 40f;
 
     private void Start()
     {
@@ -61,6 +71,8 @@ public class Gazling_controller : MonoBehaviour
         vidaActual = vidaMaxima;
 
         MostrarFormaNormal();
+
+        ActualizarBarraVida();
 
         StartCoroutine(ReproducirSonido());
     }
@@ -145,17 +157,18 @@ public class Gazling_controller : MonoBehaviour
         {
             vidaActual = 0;
         }
+        MostrarDanio(cantidad);
 
-        Debug.Log("Daño recibido " + cantidad +" vida actual => " + vidaActual);
+        ActualizarBarraVida();
 
+
+        Debug.Log("Daño recibido " +cantidad +" vida actual => " +vidaActual);
 
         if (vidaActual > 0)
         {
             ActivarAnimacionPisado();
             return;
         }
-
-
 
         if (!segundaForma)
         {
@@ -208,6 +221,8 @@ public class Gazling_controller : MonoBehaviour
             vidaMaxima * porcentajeSegundaForma
         );
 
+        ActualizarBarraVida();
+
         if (cabeza != null)
         {
             cabeza.SetActive(false);
@@ -252,6 +267,8 @@ public class Gazling_controller : MonoBehaviour
         vidaActual = Mathf.CeilToInt(
             vidaMaxima * porcentajeAlRevivir
         );
+
+        ActualizarBarraVida();
 
         if (cuerpoNormal != null)
         {
@@ -321,6 +338,46 @@ public class Gazling_controller : MonoBehaviour
                     sonidoEnemigo
                 );
             }
+        }
+    }
+
+    private void ActualizarBarraVida()
+    {
+        if (barraVida == null)
+            return;
+
+        float porcentaje = (float)vidaActual / vidaMaxima;
+
+        barraVida.sizeDelta = new Vector2(
+            anchoBarraVida * porcentaje,
+            barraVida.sizeDelta.y
+        );
+    }
+
+    private void MostrarDanio(int cantidad)
+    {
+        if (textoDanio == null)
+        {
+            return;
+        }
+
+        textoDanio.text = "-" + cantidad;
+
+        textoDanio.gameObject.SetActive(true);
+
+        CancelInvoke(nameof(OcultarDanio));
+
+        Invoke(
+            nameof(OcultarDanio),
+            tiempoTextoDanio
+        );
+    }
+
+    private void OcultarDanio()
+    {
+        if (textoDanio != null)
+        {
+            textoDanio.gameObject.SetActive(false);
         }
     }
 }
