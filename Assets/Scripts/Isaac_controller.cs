@@ -65,10 +65,9 @@ public class Isaac_controller : MonoBehaviour
         float HorizontalMove = Input.GetAxis("Horizontal");
 
         rb.linearVelocity = new Vector2(
-            HorizontalMove * speed,
-            rb.linearVelocity.y
-        );
-
+    HorizontalMove * speed,
+    rb.linearVelocity.y
+);
         animator.SetFloat(
             "Speed",
             Math.Abs(HorizontalMove)
@@ -163,11 +162,7 @@ public class Isaac_controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            inGroud = true;
-        }
-        if (collision.gameObject.CompareTag("Pipe"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Pipe"))
         {
             inGroud = true;
         }
@@ -175,11 +170,7 @@ public class Isaac_controller : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            inGroud = false;
-        }
-        if (collision.gameObject.CompareTag("Pipe"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Pipe"))
         {
             inGroud = false;
         }
