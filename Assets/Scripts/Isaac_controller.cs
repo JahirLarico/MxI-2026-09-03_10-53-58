@@ -1,16 +1,18 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Isaac_controller : MonoBehaviour
 {
+    [Header("REINICIO DEL JUEGO")]
+    [Tooltip("Tiempo de espera antes de reiniciar la escena.")]
+    public float tiempoParaReiniciar = 3f;
     private Rigidbody2D rb;
 
     [Header("Movimiento")]
     public int speed = 2;
     public int jumpForce = 200;
-
-    private bool spriteRight = true;
 
     public bool inGroud = true;
 
@@ -46,8 +48,12 @@ public class Isaac_controller : MonoBehaviour
 
     public float cadenciaDisparo = 1f;
     public int danoLagrima = 10;
-
+    private bool spriteCambiado = false;
     private float temporizadorDisparo = 0f;
+
+    [Header("CAMBIO DE SPRITE")]
+    [SerializeField] private GameObject cabeza;
+    [SerializeField] private SpriteRenderer spriteCuerpo;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -228,7 +234,6 @@ public class Isaac_controller : MonoBehaviour
     {
         death = true;
 
-        Debug.Log("Isaac ha muerto.");
     }
 
 
@@ -253,13 +258,11 @@ public class Isaac_controller : MonoBehaviour
     {
         if (prefabLagrima == null)
         {
-            Debug.LogWarning("No has asignado el prefab de la lágrima.");
             return;
         }
 
         if (puntoDisparo == null)
         {
-            Debug.LogWarning("No has asignado el PuntoDisparo.");
             return;
         }
 
@@ -282,4 +285,34 @@ public class Isaac_controller : MonoBehaviour
         }
     }
 
+    public void CambiarSprite(Sprite nuevoSprite)
+    {
+        if (nuevoSprite == null) return;
+        StartCoroutine(ReiniciarJuego());
+        speed = 0;
+        if (animator != null)
+        {
+            animator.enabled = false;
+        }
+
+        if (cabeza != null)
+        {
+            cabeza.SetActive(false);
+        }
+
+        if (spriteCuerpo != null)
+        {
+            spriteCuerpo.sprite = nuevoSprite;
+        }
+        else
+        {
+            Debug.LogWarning("No se ha asignado el SpriteRenderer del cuerpo.");
+        }
+    }
+    private IEnumerator ReiniciarJuego()
+    {
+        yield return new WaitForSeconds(tiempoParaReiniciar);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

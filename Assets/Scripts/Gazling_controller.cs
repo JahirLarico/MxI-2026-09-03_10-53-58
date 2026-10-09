@@ -162,7 +162,6 @@ public class Gazling_controller : MonoBehaviour
         ActualizarBarraVida();
 
 
-        Debug.Log("Daño recibido " +cantidad +" vida actual => " +vidaActual);
 
         if (vidaActual > 0)
         {
@@ -244,7 +243,6 @@ public class Gazling_controller : MonoBehaviour
 
     private IEnumerator TemporizadorSegundaForma()
     {
-        Debug.Log("Tiempo para revivir " + tiempoParaMatarSegundaForma );
 
         yield return new WaitForSeconds(
             tiempoParaMatarSegundaForma
