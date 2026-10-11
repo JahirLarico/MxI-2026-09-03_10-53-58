@@ -1,8 +1,7 @@
+
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-
 
 public class Gazling_controller : MonoBehaviour
 {
@@ -18,21 +17,22 @@ public class Gazling_controller : MonoBehaviour
     public int danoPorPisoton = 12;
 
     [Header("SEGUNDA FORMA")]
-    [Tooltip("Porcentaje de vida que tendrá la segunda forma.")]
+    [Tooltip("Sprite nuevo que se aplicará al cuerpo.")]
+    public Sprite spriteSegundaForma;
+
     [Range(0f, 1f)]
     public float porcentajeSegundaForma = 0.50f;
 
-    [Tooltip("Tiempo que tiene Isaac para matar la segunda forma.")]
     public float tiempoParaMatarSegundaForma = 2f;
 
-    [Tooltip("Porcentaje de vida al volver a la forma normal.")]
     [Range(0f, 1f)]
     public float porcentajeAlRevivir = 0.75f;
 
     [Header("FORMAS DEL ENEMIGO")]
     public GameObject cabeza;
+
+    [Tooltip("Arrastra aquí el objeto hijo llamado cuerpo.")]
     public GameObject cuerpoNormal;
-    public GameObject cuerpoSegundaForma;
 
     [Header("SONIDO")]
     public AudioSource audioSource;
@@ -42,41 +42,77 @@ public class Gazling_controller : MonoBehaviour
     [Header("ANIMACIÓN")]
     public Animator animator;
 
+    [Header("BARRA DE VIDA")]
+    public RectTransform barraVida;
+    public TextMeshProUGUI textoDanio;
+    public float tiempoTextoDanio = 0.5f;
+    public float anchoBarraVida = 40f;
+
     private bool isBated = false;
     private bool segundaForma = false;
     private bool puedeRecibirPisoton = true;
 
     private BoxCollider2D box;
+    private Collider2D colliderEnemigo;
+
+    private SpriteRenderer spriteRendererCuerpo;
+    private Sprite spriteOriginal;
 
     private Vector2 originalSize;
     private Vector2 originalOffset;
 
     private Coroutine coroutineRevivir;
 
-    [Header("BARRA DE VIDA")]
-    public RectTransform barraVida;
-    public TextMeshProUGUI textoDanio;
-    public float tiempoTextoDanio = 0.5f;
-
-    [Header("BARRA DE VIDA")]
-    public float anchoBarraVida = 40f;
-
     private void Start()
     {
         box = GetComponent<BoxCollider2D>();
+        colliderEnemigo = GetComponent<Collider2D>();
 
-        originalSize = box.size;
-        originalOffset = box.offset;
+        if (box != null)
+        {
+            originalSize = box.size;
+            originalOffset = box.offset;
+        }
+
+        // Buscar exclusivamente el SpriteRenderer del cuerpo.
+        if (cuerpoNormal == null)
+        {
+            Transform cuerpoEncontrado = transform.Find("cuerpo");
+
+            if (cuerpoEncontrado != null)
+            {
+                cuerpoNormal = cuerpoEncontrado.gameObject;
+            }
+        }
+
+        if (cuerpoNormal != null)
+        {
+            spriteRendererCuerpo =
+                cuerpoNormal.GetComponent<SpriteRenderer>();
+        }
+
+        if (spriteRendererCuerpo == null)
+        {
+            Debug.LogError(
+                "Gazling: asigna el objeto cuerpo en Cuerpo Normal y verifica que tenga SpriteRenderer.",
+                this
+            );
+        }
+        else
+        {
+            spriteOriginal = spriteRendererCuerpo.sprite;
+        }
 
         vidaActual = vidaMaxima;
 
         MostrarFormaNormal();
-
         ActualizarBarraVida();
 
-        StartCoroutine(ReproducirSonido());
+        if (intervaloSonido > 0f)
+        {
+            StartCoroutine(ReproducirSonido());
+        }
     }
-
 
     private void Update()
     {
@@ -85,52 +121,63 @@ public class Gazling_controller : MonoBehaviour
             return;
         }
 
-        if (moveRight)
-        {
-            transform.Translate(2 * Time.deltaTime * speed, 0, 0);
-        }
-        else
-        {
-            transform.Translate(-2 * Time.deltaTime * speed, 0, 0);
-        }
-    }
+        float direccion = moveRight ? 1f : -1f;
 
+        transform.Translate(
+            direccion * 2f * Time.deltaTime * speed,
+            0f,
+            0f
+        );
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Pipe") ||
-            collision.gameObject.CompareTag("Enemie"))
+        if (collision.CompareTag("Pipe") ||
+            collision.CompareTag("Enemie"))
         {
-            if (moveRight)
-            {
-                moveRight = false;
-            }
-            else
-            {
-                moveRight = true;
-            }
+            moveRight = !moveRight;
         }
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (!collision.CompareTag("Player"))
         {
-                Isaac_controller isaac = collision.GetComponent<Isaac_controller>();
-            if (collision.transform.position.y > transform.position.y)
-            {
-                isaac.Rebotar();
-                Pisoton();
+            return;
+        }
 
-            }
-            else
-            {
-                isaac.RecibirDanio(1);
-            }
+        Isaac_controller isaac =
+            collision.GetComponent<Isaac_controller>();
+
+        if (isaac == null)
+        {
+            isaac =
+                collision.GetComponentInParent<Isaac_controller>();
+        }
+
+        if (isaac == null)
+        {
+            return;
+        }
+
+        // Detectar si Isaac entra desde arriba.
+        float parteInferiorIsaac = collision.bounds.min.y;
+        float parteSuperiorEnemigo =
+            colliderEnemigo != null
+                ? colliderEnemigo.bounds.max.y
+                : transform.position.y;
+
+        if (parteInferiorIsaac >= parteSuperiorEnemigo - 0.15f)
+        {
+            isaac.Rebotar();
+            Pisoton();
+        }
+        else
+        {
+            isaac.RecibirDanio(1);
         }
     }
 
-
     private void Pisoton()
     {
-        if (!puedeRecibirPisoton)
+        if (!puedeRecibirPisoton || vidaActual <= 0)
         {
             return;
         }
@@ -138,30 +185,28 @@ public class Gazling_controller : MonoBehaviour
         puedeRecibirPisoton = false;
 
         RecibirDanio(danoPorPisoton);
+
         StartCoroutine(ReactivarPisoton());
     }
-
 
     private IEnumerator ReactivarPisoton()
     {
         yield return new WaitForSeconds(0.15f);
-
         puedeRecibirPisoton = true;
     }
 
     public void RecibirDanio(int cantidad)
     {
-        vidaActual -= cantidad;
-
-        if (vidaActual < 0)
+        if (vidaActual <= 0 || cantidad <= 0)
         {
-            vidaActual = 0;
+            return;
         }
+
+        vidaActual -= cantidad;
+        vidaActual = Mathf.Max(vidaActual, 0);
+
         MostrarDanio(cantidad);
-
         ActualizarBarraVida();
-
-
 
         if (vidaActual > 0)
         {
@@ -179,42 +224,38 @@ public class Gazling_controller : MonoBehaviour
         }
     }
 
-
-
     private void ActivarAnimacionPisado()
     {
-        //isBated = true;
-
-        //speed = 0;
-
-        if (animator != null)
+        if (box == null)
         {
-            //animator.SetBool("beated", true);
+            return;
         }
 
-        float visualY = originalSize.y * 0.37f;
+        float alturaNueva = originalSize.y * 0.37f;
 
         box.size = new Vector2(
             originalSize.x,
-            visualY
+            alturaNueva
         );
 
         box.offset = new Vector2(
             originalOffset.x,
             originalOffset.y -
-            (originalSize.y - visualY) / 2f
+            (originalSize.y - alturaNueva) / 2f
         );
     }
 
-
     private void ActivarSegundaForma()
     {
-        animator.SetBool("beated", true);
         segundaForma = true;
         isBated = true;
+        speed = 0f;
 
-        speed = 0;
-
+        if (animator != null)
+        {
+            animator.SetBool("beated", true);
+            animator.enabled = false;
+        }
 
         vidaActual = Mathf.CeilToInt(
             vidaMaxima * porcentajeSegundaForma
@@ -227,27 +268,27 @@ public class Gazling_controller : MonoBehaviour
             cabeza.SetActive(false);
         }
 
-     
-
+        // Cambiar solamente el sprite del cuerpo.
+        if (spriteRendererCuerpo != null &&
+            spriteSegundaForma != null)
+        {
+            spriteRendererCuerpo.sprite = spriteSegundaForma;
+        }
 
         if (coroutineRevivir != null)
         {
             StopCoroutine(coroutineRevivir);
         }
 
-        coroutineRevivir = StartCoroutine(
-            TemporizadorSegundaForma()
-        );
+        coroutineRevivir =
+            StartCoroutine(TemporizadorSegundaForma());
     }
-
 
     private IEnumerator TemporizadorSegundaForma()
     {
-
         yield return new WaitForSeconds(
             tiempoParaMatarSegundaForma
         );
-
 
         if (vidaActual > 0)
         {
@@ -257,16 +298,20 @@ public class Gazling_controller : MonoBehaviour
 
     private void Revivir()
     {
-
         segundaForma = false;
         isBated = false;
-
 
         vidaActual = Mathf.CeilToInt(
             vidaMaxima * porcentajeAlRevivir
         );
 
         ActualizarBarraVida();
+
+        // Restaurar el sprite original del cuerpo.
+        if (spriteRendererCuerpo != null)
+        {
+            spriteRendererCuerpo.sprite = spriteOriginal;
+        }
 
         if (cuerpoNormal != null)
         {
@@ -278,29 +323,29 @@ public class Gazling_controller : MonoBehaviour
             cabeza.SetActive(true);
         }
 
-
-        box.size = originalSize;
-        box.offset = originalOffset;
+        if (box != null)
+        {
+            box.size = originalSize;
+            box.offset = originalOffset;
+        }
 
         speed = 0.6f;
 
-
         if (animator != null)
         {
+            animator.enabled = true;
             animator.SetBool("beated", false);
         }
 
         puedeRecibirPisoton = true;
+        coroutineRevivir = null;
     }
-
 
     private void MuerteDefinitiva()
     {
         Debug.Log("Gazling murió definitivamente.");
-
         Destroy(gameObject);
     }
-
 
     private void MostrarFormaNormal()
     {
@@ -309,40 +354,36 @@ public class Gazling_controller : MonoBehaviour
             cuerpoNormal.SetActive(true);
         }
 
-        if (cuerpoSegundaForma != null)
-        {
-            cuerpoSegundaForma.SetActive(false);
-        }
-
         if (cabeza != null)
         {
             cabeza.SetActive(true);
         }
-    }
 
+        if (spriteRendererCuerpo != null)
+        {
+            spriteRendererCuerpo.sprite = spriteOriginal;
+        }
+    }
 
     private IEnumerator ReproducirSonido()
     {
         while (true)
         {
-            yield return new WaitForSeconds(
-                intervaloSonido
-            );
+            yield return new WaitForSeconds(intervaloSonido);
 
-            if (sonidoEnemigo != null &&
-                audioSource != null)
+            if (sonidoEnemigo != null && audioSource != null)
             {
-                audioSource.PlayOneShot(
-                    sonidoEnemigo
-                );
+                audioSource.PlayOneShot(sonidoEnemigo);
             }
         }
     }
 
     private void ActualizarBarraVida()
     {
-        if (barraVida == null)
+        if (barraVida == null || vidaMaxima <= 0)
+        {
             return;
+        }
 
         float porcentaje = (float)vidaActual / vidaMaxima;
 
@@ -360,15 +401,10 @@ public class Gazling_controller : MonoBehaviour
         }
 
         textoDanio.text = "-" + cantidad;
-
         textoDanio.gameObject.SetActive(true);
 
         CancelInvoke(nameof(OcultarDanio));
-
-        Invoke(
-            nameof(OcultarDanio),
-            tiempoTextoDanio
-        );
+        Invoke(nameof(OcultarDanio), tiempoTextoDanio);
     }
 
     private void OcultarDanio()
